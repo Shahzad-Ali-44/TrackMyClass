@@ -185,7 +185,5 @@ This project is licensed under the [MIT License](LICENSE).
 - Bootstrap for responsive and stylish design.  
 - Laragon for simplifying the local development setup.  
 - PHP community for continuous support and development tools.  
-- Open-source contributors for their invaluable resources.  
-- Special thanks to teachers and educators for inspiring this project.  
 
 **TrackMyClass: Simplifying student management for educators with efficiency and ease.**  
