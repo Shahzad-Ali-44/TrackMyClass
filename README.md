@@ -180,7 +180,7 @@ Contributions are welcome! Feel free to fork the repository, make improvements, 
 
 This project is licensed under the [MIT License](LICENSE).
 
-**Acknowledgments**  
+## Acknowledgments  
 - Laravel framework for its powerful and elegant syntax.  
 - Bootstrap for responsive and stylish design.  
 - Laragon for simplifying the local development setup.  
