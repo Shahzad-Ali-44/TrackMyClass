@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 
 class ContactController extends Controller
 {
@@ -21,17 +21,30 @@ class ContactController extends Controller
         ]);
 
         try {
-            Mail::raw($request->message, function ($mail) use ($request) {
-                $mail->to(env('ADMIN_EMAIL')) 
-                    ->from($request->email, $request->name)
-                    ->subject('Contact Form Submission');
-            });
+            // Get input using Laravel's request helper
+            $name = trim($request->input('name'));
+            $email = trim($request->input('email'));
+            $message = trim($request->input('message'));
 
-            // Return success response
-            return redirect('/contact')->with('success', 'Your message has been sent successfully!');
+            // Send data to Web3Forms API
+            $response = Http::post('https://api.web3forms.com/submit', [
+                'access_key' => config('services.web3forms.access_key'), // Use config
+                'name' => $name,
+                'email' => $email,
+                'message' => $message,
+                'subject' => 'New Contact Form Submission from TrackMyClass',
+                'website' => 'TrackMyClass',
+            ]);
+
+            // Check API response safely
+            if (isset($response->json()['success']) && $response->json()['success']) {
+                return redirect('/contact')->with('success', 'Your message has been sent successfully!');
+            } else {
+                return redirect('/contact')->with('error', 'Failed to send your message. Please try again.');
+            }
+
         } catch (\Exception $e) {
-            // Return error response
-            return redirect('/contact')->with('error', 'Failed to send your message. Please try again.');
+            return redirect('/contact')->with('error', 'An error occurred. Please try again.');
         }
     }
 }

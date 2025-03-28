@@ -14,6 +14,13 @@ return [
     |
     */
 
+
+
+    'web3forms' => [
+        'access_key' => env('WEB3FORMS_ACCESS_KEY'),
+    ],
+
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
