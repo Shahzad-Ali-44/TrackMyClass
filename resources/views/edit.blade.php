@@ -3,20 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TrackMyClass is a student management platform that helps educators track student records.">
+    <meta name="keywords" content="TrackMyClass, student management, school records, students tracking, education platform">
+    <meta name="author" content="TrackMyClass Team">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
     <title>TrackMyClass - Edit Record</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body class="bg-light">
+<body class="bg-light d-flex flex-column min-vh-100">
 
     <!-- Header -->
     @include('includes.header') 
 
     <!-- Main Content -->
-    <div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="container d-flex align-items-center justify-content-center flex-grow-1 my-3">
         <div class="col-lg-6 col-md-8">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white text-center">
-                    <h3>Edit Student</h3>
+                    <h3>Edit Student Record</h3>
                 </div>
                 <div class="card-body">
                     <form action="/update" method="POST">
