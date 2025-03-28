@@ -12,7 +12,7 @@
                         <a class="nav-link text-white fw-bold" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-bold" href="/formShow">Records</a>
+                        <a class="nav-link text-white fw-bold" href="/records">Records</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white fw-bold" href="/contact">Contact us</a>

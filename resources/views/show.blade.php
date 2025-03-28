@@ -59,7 +59,7 @@
                     <tbody>
                         @forelse ($form as $student)
                             <tr>
-                                <td>{{ $student->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td class="text-nowrap">{{ $student->name }}</td>
                                 <td class="text-nowrap">{{ $student->roll_number }}</td>
                                 <td>

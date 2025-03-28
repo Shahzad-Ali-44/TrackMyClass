@@ -9,7 +9,7 @@ Route::get('/', [StudentFormController::class,"create"]);
 
 Route::post('/formSubmit', [StudentFormController::class,"store"]);
 
-Route::get('/formShow', [StudentFormController::class,"index"]);
+Route::get('/records', [StudentFormController::class,"index"]);
 
 Route::get('/editForm/{id}', [StudentFormController::class,"edit"]);
 Route::post('/update', [StudentFormController::class,"update"]);

@@ -36,7 +36,7 @@
                             <input type="text" class="form-control" id="rollNumber" placeholder="Enter roll number" name="roll_number" value="{{ $data->roll_number }}" required>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <a href="/formShow" class="btn btn-secondary">Back</a>
+                            <a href="/records" class="btn btn-secondary">Back</a>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>

@@ -33,7 +33,7 @@ class StudentFormController extends Controller
         $form->roll_number = $request->input('roll_number');
 
         if ($form->save()) {
-            return redirect('/formShow')->with('success', 'Student added successfully.');
+            return redirect('/records')->with('success', 'Student added successfully.');
         } else {
             return redirect('/')->with('error', 'Failed to add student.');
         }
@@ -60,9 +60,9 @@ class StudentFormController extends Controller
         $data->roll_number = $request->input('roll_number');
 
         if ($data->save()) {
-            return redirect('/formShow')->with('success', 'Student updated successfully.');
+            return redirect('/records')->with('success', 'Student updated successfully.');
         } else {
-            return redirect('/formShow')->with('error', 'Failed to update student.');
+            return redirect('/records')->with('error', 'Failed to update student.');
         }
     }
 
@@ -70,9 +70,9 @@ class StudentFormController extends Controller
     public function destroy($id)
     {
         if (student_form::destroy($id)) {
-            return redirect('/formShow')->with('success', 'Student deleted successfully.');
+            return redirect('/records')->with('success', 'Student deleted successfully.');
         } else {
-            return redirect('/formShow')->with('error', 'Failed to delete student.');
+            return redirect('/records')->with('error', 'Failed to delete student.');
         }
     }
 }
