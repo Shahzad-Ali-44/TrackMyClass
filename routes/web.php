@@ -1,21 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentFormController;
-use App\Http\Controllers\ContactController;
+use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
-Route::get('/', [StudentFormController::class,"create"]);
+Route::get('/dashboard', [StudentFormController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/formSubmit', [StudentFormController::class,"store"]);
+Route::middleware('auth')->group(function () {
+    Route::get('/student/create', [StudentFormController::class, 'create'])->name('student.create');
+    Route::post('/student/store', [StudentFormController::class, 'store'])->name('student.store');
+    Route::get('/student/{id}/edit', [StudentFormController::class, 'edit'])->name('student.edit');
+    Route::post('/student/update', [StudentFormController::class, 'update'])->name('student.update');
+    Route::delete('/student/{id}', [StudentFormController::class, 'destroy'])->name('student.destroy');
+    
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/records', [StudentFormController::class,"index"]);
-
-Route::get('/editForm/{id}', [StudentFormController::class,"edit"]);
-Route::post('/update', [StudentFormController::class,"update"]);
-
-Route::get('/deleteForm/{id}' , [StudentFormController::class,"destroy"]);
-
-
-Route::get('/contact', [ContactController::class, 'create']);
-Route::post('/contactSubmit', [ContactController::class, 'store']);
+require __DIR__.'/auth.php';
